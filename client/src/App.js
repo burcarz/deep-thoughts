@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
 });
 
 const client = new ApolloClient({
@@ -17,6 +17,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    <ApolloProvider client={client}>
     <div className='flex-column justify-flex-start min-100-vh'>
       <Header />
       <div className='container'>
@@ -24,6 +25,7 @@ function App() {
       </div>
       <Footer />
     </div>
+    </ApolloProvider>
   );
 }
 
